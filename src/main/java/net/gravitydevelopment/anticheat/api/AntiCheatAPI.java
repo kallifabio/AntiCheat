@@ -19,9 +19,9 @@
 package net.gravitydevelopment.anticheat.api;
 
 import net.gravitydevelopment.anticheat.AntiCheat;
+import net.gravitydevelopment.anticheat.check.CheckType;
 import net.gravitydevelopment.anticheat.manage.AntiCheatManager;
 import net.gravitydevelopment.anticheat.manage.CheckManager;
-import net.gravitydevelopment.anticheat.check.CheckType;
 import net.gravitydevelopment.anticheat.manage.UserManager;
 import net.gravitydevelopment.anticheat.util.Group;
 import net.gravitydevelopment.anticheat.xray.XRayTracker;

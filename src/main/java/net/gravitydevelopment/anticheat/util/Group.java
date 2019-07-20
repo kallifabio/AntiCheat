@@ -46,6 +46,7 @@ public class Group {
             this.color = c;
         }
     }
+
     public String getName() {
         return name;
     }

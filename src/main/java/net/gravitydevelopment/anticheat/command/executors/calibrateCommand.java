@@ -20,39 +20,27 @@ package net.gravitydevelopment.anticheat.command.executors;
 
 import net.gravitydevelopment.anticheat.AntiCheat;
 import net.gravitydevelopment.anticheat.command.CommandBase;
+import net.gravitydevelopment.anticheat.util.Calibrator;
 import net.gravitydevelopment.anticheat.util.Permission;
-import net.gravitydevelopment.anticheat.util.User;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
-public class CommandReset extends CommandBase {
+public class calibrateCommand extends CommandBase {
 
-    private static final String NAME = "AntiCheat Resetting";
-    private static final String COMMAND = "reset";
-    private static final String USAGE = "anticheat reset [user]";
-    private static final Permission PERMISSION = Permission.SYSTEM_RESET;
+    private static final String NAME = "AntiCheat Calibration";
+    private static final String COMMAND = "calibrate";
+    private static final String USAGE = "anticheat calibrate";
+    private static final Permission PERMISSION = Permission.SYSTEM_CALIBRATE;
     private static final String[] HELP = {
-            GRAY + "Use: " + AQUA + "/anticheat reset [user]" + GRAY + " to reset this user's hack level",
+            GRAY + "Use: " + AQUA + "/anticheat calibrate" + GRAY + " to calibrate AntiCheat settings",
     };
 
-    public CommandReset() {
+    public calibrateCommand() {
         super(NAME, COMMAND, USAGE, HELP, PERMISSION);
     }
 
     @Override
     protected void execute(CommandSender cs, String[] args) {
-        if (args.length == 1) {
-            User user = USER_MANAGER.getUser(args[0]);
-            if (user != null) {
-                user.resetLevel();
-                XRAY_TRACKER.reset(args[0]);
-                user.clearMessages();
-                AntiCheat.getManager().getBackend().resetChatLevel(user);
-                cs.sendMessage(args[0] + GREEN + " has been reset.");
-            } else {
-                cs.sendMessage(RED + "Player: " +args[0] + " not found.");
-            }
-        } else {
-            sendHelp(cs);
-        }
+        Calibrator c = new Calibrator(AntiCheat.getPlugin(), (Player) cs);
     }
 }

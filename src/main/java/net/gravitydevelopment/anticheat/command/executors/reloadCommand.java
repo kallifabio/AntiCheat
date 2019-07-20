@@ -22,31 +22,23 @@ import net.gravitydevelopment.anticheat.command.CommandBase;
 import net.gravitydevelopment.anticheat.util.Permission;
 import org.bukkit.command.CommandSender;
 
-public class CommandHelp extends CommandBase {
+public class reloadCommand extends CommandBase {
 
-    private static final String NAME = "AntiCheat Help";
-    private static final String COMMAND = "help";
-    private static final String USAGE = "anticheat help";
-    private static final Permission PERMISSION = Permission.SYSTEM_HELP;
+    private static final String NAME = "AntiCheat Reload";
+    private static final String COMMAND = "reload";
+    private static final String USAGE = "anticheat reload";
+    private static final Permission PERMISSION = Permission.SYSTEM_RELOAD;
     private static final String[] HELP = {
-            GRAY + "/anti " + AQUA + "help",
-            GRAY + "/anti " + AQUA + "reload",
-            GRAY + "/anti " + AQUA + "update",
-            GRAY + "/anti " + AQUA + "debug " + AQUA + "<user>",
-            GRAY + "/anti " + AQUA + "check " + GOLD + "[check] [on/off]",
-            GRAY + "/anti " + AQUA + "log " + GOLD + "[file/console] [on/off]",
-            GRAY + "/anti " + AQUA + "report " + GOLD + "[group/user]",
-            GRAY + "/anti " + AQUA + "reset " + GOLD + "[user]",
-            GRAY + "/anti " + AQUA + "xray " + GOLD + "[user]",
-            GRAY + "/anti " + AQUA + "spy " + GOLD + "[user]",
+            GRAY + "Use: " + AQUA + "/anticheat reload" + GRAY + " zum neuladen der AntiCheat Einstellungen",
     };
 
-    public CommandHelp() {
+    public reloadCommand() {
         super(NAME, COMMAND, USAGE, HELP, PERMISSION);
     }
 
     @Override
     protected void execute(CommandSender cs, String[] args) {
-        sendHelp(cs);
+        CONFIG.load();
+        cs.sendMessage(GREEN + "AntiCheat Configuration neugeladen.");
     }
 }

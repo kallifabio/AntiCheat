@@ -144,7 +144,7 @@ public class Database {
                 }, logInterval * 20, logInterval * 20);
             }
 
-            if(syncLevels && syncInterval != 0) {
+            if (syncLevels && syncInterval != 0) {
                 syncTask = Bukkit.getScheduler().runTaskTimerAsynchronously(AntiCheat.getPlugin(), new Runnable() {
                     @Override
                     public void run() {

@@ -22,7 +22,10 @@ import net.gravitydevelopment.anticheat.AntiCheat;
 import net.gravitydevelopment.anticheat.check.CheckType;
 import net.gravitydevelopment.anticheat.command.CommandBase;
 import net.gravitydevelopment.anticheat.manage.CheckManager;
-import net.gravitydevelopment.anticheat.util.*;
+import net.gravitydevelopment.anticheat.util.Group;
+import net.gravitydevelopment.anticheat.util.Permission;
+import net.gravitydevelopment.anticheat.util.User;
+import net.gravitydevelopment.anticheat.util.Utilities;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -31,7 +34,7 @@ import org.bukkit.entity.Player;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CommandReport extends CommandBase {
+public class reportCommand extends CommandBase {
 
     private static final String NAME = "AntiCheat Reports";
     private static final String COMMAND = "report";
@@ -43,7 +46,7 @@ public class CommandReport extends CommandBase {
             GRAY + "Use: " + AQUA + "/anticheat report [user/group] [num]" + GRAY + " to see pages of a report",
     };
 
-    public CommandReport() {
+    public reportCommand() {
         super(NAME, COMMAND, USAGE, HELP, PERMISSION);
     }
 
@@ -61,8 +64,7 @@ public class CommandReport extends CommandBase {
 
             if ("low".equalsIgnoreCase(args[0])) {
                 groupReport(cs, null, page);
-            }
-            else if ("all".equalsIgnoreCase(args[0])) {
+            } else if ("all".equalsIgnoreCase(args[0])) {
                 cs.sendMessage(GREEN + "Low: " + WHITE + USER_MANAGER.getUsersInGroup(null).size() + " players");
                 for (Group g : CONFIG.getGroups().getGroups()) {
                     int numPlayers = USER_MANAGER.getUsersInGroup(g).size();

@@ -25,7 +25,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class CommandDebug extends CommandBase {
+public class debugCommand extends CommandBase {
 
     private static final String NAME = "AntiCheat Debug Reporting";
     private static final String COMMAND = "debug";
@@ -36,7 +36,7 @@ public class CommandDebug extends CommandBase {
             GRAY + "Use: " + AQUA + "/anticheat debug <user>" + GRAY + " to create a debug report for a user",
     };
 
-    public CommandDebug() {
+    public debugCommand() {
         super(NAME, COMMAND, USAGE, HELP, PERMISSION);
     }
 

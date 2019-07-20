@@ -1,12 +1,12 @@
 # AntiCheat language file
 # Please report any bugs: https://github.com/gravitylow/AntiCheat/issues
 ALERT:
-- '&player has just entered the &group hack group.'
-- '&player''s last failed check was: &check.'
-- 'Type ''/anticheat report &player'' for more information.'
+  - '&player has just entered the &group hack group.'
+  - '&player''s last failed check was: &check.'
+  - 'Type ''/anticheat report &player'' for more information.'
 WARNING:
-- '[AntiCheat] Hacking is not permitted.'
-- '[AntiCheat] If you continue to hack, action will be taken.'
+  - '[AntiCheat] Hacking is not permitted.'
+  - '[AntiCheat] If you continue to hack, action will be taken.'
 BAN_REASON: 'Banned by AntiCheat'
 BAN_BROADCAST: '&player was banned for hacking.'
 KICK_REASON: 'Kicked by AntiCheat'

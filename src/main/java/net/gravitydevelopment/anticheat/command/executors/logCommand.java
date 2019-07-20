@@ -23,7 +23,7 @@ import net.gravitydevelopment.anticheat.config.ConfigurationFile;
 import net.gravitydevelopment.anticheat.util.Permission;
 import org.bukkit.command.CommandSender;
 
-public class CommandLog extends CommandBase {
+public class logCommand extends CommandBase {
 
     private static final String NAME = "AntiCheat Logging";
     private static final String COMMAND = "log";
@@ -34,7 +34,7 @@ public class CommandLog extends CommandBase {
             GRAY + "Use: " + AQUA + "/anticheat log file off" + GRAY + " to disable file logging",
     };
 
-    public CommandLog() {
+    public logCommand() {
         super(NAME, COMMAND, USAGE, HELP, PERMISSION);
     }
 

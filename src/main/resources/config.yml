@@ -44,7 +44,7 @@ system:
   enterprise: false
 # Use /anticheat check for a list of valid checks
 disabled-checks:
-- EXAMPLE_CHECK
+  - EXAMPLE_CHECK
 disable-in:
-- example-world
-- example-world-2
+  - example-world
+  - example-world-2

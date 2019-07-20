@@ -23,32 +23,23 @@ import net.gravitydevelopment.anticheat.command.CommandBase;
 import net.gravitydevelopment.anticheat.util.Permission;
 import org.bukkit.command.CommandSender;
 
-public class CommandUpdate extends CommandBase {
+public class developerCommand extends CommandBase {
 
-    private static final String NAME = "AntiCheat Update Checking";
-    private static final String COMMAND = "update";
-    private static final String USAGE = "anticheat update";
-    private static final Permission PERMISSION = Permission.SYSTEM_UPDATE;
+    private static final String NAME = "AntiCheat Developer Mode";
+    private static final String COMMAND = "developer";
+    private static final String USAGE = "anticheat developer";
+    private static final Permission PERMISSION = Permission.SYSTEM_DEBUG;
     private static final String[] HELP = {
-            GRAY + "Use: " + AQUA + "/anticheat update" + GRAY + " to view the system's update status",
+            GRAY + "Use: " + AQUA + "/anticheat developer" + GRAY + " to turn on developer mode",
     };
 
-    public CommandUpdate() {
+    public developerCommand() {
         super(NAME, COMMAND, USAGE, HELP, PERMISSION);
     }
 
     @Override
     protected void execute(CommandSender cs, String[] args) {
-        cs.sendMessage(GRAY + "Running AntiCheat v" + GREEN + AntiCheat.getVersion());
-        if (CONFIG.getConfig().autoUpdate.getValue()) {
-            cs.sendMessage(GRAY + "Up to date: " + (AntiCheat.isUpdated() ? GREEN + "YES" : RED + "NO"));
-            if (!AntiCheat.isUpdated()) {
-                cs.sendMessage(GRAY + "Newest version: " + GREEN + AntiCheat.getUpdateDetails());
-                cs.sendMessage(GOLD + "The newest version will be automatically installed on next launch.");
-            }
-        } else {
-            cs.sendMessage(GRAY + "Your config settings have disabled update checking.");
-            cs.sendMessage(GRAY + "Please enable this setting or visit http://dev.bukkit.org/bukkit-plugins/anticheat/");
-        }
+        AntiCheat.setDeveloperMode(!AntiCheat.developerMode());
+        cs.sendMessage(GREEN + "Developer mode " + (AntiCheat.developerMode() ? "ON" : "OFF"));
     }
 }

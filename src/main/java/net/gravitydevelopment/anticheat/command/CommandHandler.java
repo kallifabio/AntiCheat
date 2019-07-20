@@ -31,18 +31,18 @@ public class CommandHandler implements CommandExecutor {
     private List<CommandBase> commands = new ArrayList<CommandBase>();
 
     public CommandHandler() {
-        commands.add(new CommandHelp());
-        //commands.add(new CommandCalibrate());
-        commands.add(new CommandCheck());
-        commands.add(new CommandDebug());
-        commands.add(new CommandDeveloper());
-        commands.add(new CommandLog());
-        commands.add(new CommandReload());
-        commands.add(new CommandReport());
-        commands.add(new CommandReset());
-        commands.add(new CommandSpy());
-        commands.add(new CommandUpdate());
-        commands.add(new CommandXray());
+        commands.add(new helpCommand());
+        //commands.add(new calibrateCommand());
+        commands.add(new checkCommand());
+        commands.add(new debugCommand());
+        commands.add(new developerCommand());
+        commands.add(new logCommand());
+        commands.add(new reloadCommand());
+        commands.add(new reportCommand());
+        commands.add(new resetCommand());
+        commands.add(new spyCommand());
+        commands.add(new updateCommand());
+        commands.add(new xrayCommand());
     }
 
     @Override
@@ -50,9 +50,9 @@ public class CommandHandler implements CommandExecutor {
         if (args.length >= 1) {
             String command = args[0];
             // Shift args down
-            String[] newArgs = new String[args.length-1];
-            for (int i=1;i<args.length;i++) {
-                newArgs[i-1] = args[i];
+            String[] newArgs = new String[args.length - 1];
+            for (int i = 1; i < args.length; i++) {
+                newArgs[i - 1] = args[i];
             }
             for (CommandBase base : commands) {
                 if (base.getCommand().equalsIgnoreCase(command)) {

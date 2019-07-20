@@ -25,7 +25,7 @@ import org.bukkit.command.CommandSender;
 
 import java.util.List;
 
-public class CommandCheck extends CommandBase {
+public class checkCommand extends CommandBase {
 
     private static final String NAME = "AntiCheat Check Management";
     private static final String COMMAND = "check";
@@ -38,16 +38,16 @@ public class CommandCheck extends CommandBase {
         HELP[1] = GRAY + "Use: " + AQUA + "/anticheat check [check] off" + GRAY + " to disable a check";
         StringBuilder builder = new StringBuilder();
         builder.append(GRAY + "Checks: ");
-        for (int i=0;i<CheckType.values().length;i++) {
+        for (int i = 0; i < CheckType.values().length; i++) {
             builder.append(CheckType.values()[i]);
-            if (i<CheckType.values().length-1) {
+            if (i < CheckType.values().length - 1) {
                 builder.append(", ");
             }
         }
         HELP[2] = builder.toString();
     }
 
-    public CommandCheck() {
+    public checkCommand() {
         super(NAME, COMMAND, USAGE, HELP, PERMISSION);
     }
 

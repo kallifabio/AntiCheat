@@ -18,8 +18,9 @@
 
 package net.gravitydevelopment.anticheat.util;
 
-import static org.junit.Assert.*;
 import org.junit.Test;
+
+import static org.junit.Assert.assertNotEquals;
 
 public class GroupTest {
 

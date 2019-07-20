@@ -28,7 +28,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.metadata.FixedMetadataValue;
 
-public class CommandSpy extends CommandBase {
+public class spyCommand extends CommandBase {
 
     private static final String NAME = "AntiCheat Spying";
     private static final String COMMAND = "spy";
@@ -38,7 +38,7 @@ public class CommandSpy extends CommandBase {
             GRAY + "Use: " + AQUA + "/anticheat spy [user]" + GRAY + " to spy on a user",
     };
 
-    public CommandSpy() {
+    public spyCommand() {
         super(NAME, COMMAND, USAGE, HELP, PERMISSION);
     }
 
@@ -66,7 +66,7 @@ public class CommandSpy extends CommandBase {
                         sender.sendMessage(GREEN + "You have been teleported to " + player.getName() + " and made invisible.");
                         sender.sendMessage(GREEN + "To stop spying, type " + WHITE + " /anti spy off");
                     } else {
-                        cs.sendMessage(RED + "Player: " +args[0] + " not found.");
+                        cs.sendMessage(RED + "Player: " + args[0] + " not found.");
                     }
                 } else {
                     if (sender.hasMetadata(Utilities.SPY_METADATA)) {
@@ -83,11 +83,11 @@ public class CommandSpy extends CommandBase {
                         sender.sendMessage(RED + "You were not spying.");
                     }
                 }
-                } else {
-                    cs.sendMessage(RED + "Sorry, but you can't spy on a player from the console.");
-                }
             } else {
-                sendHelp(cs);
+                cs.sendMessage(RED + "Sorry, but you can't spy on a player from the console.");
             }
+        } else {
+            sendHelp(cs);
         }
+    }
 }

@@ -456,7 +456,9 @@ public final class Utilities {
      * @return ArrayList with string
      */
     public static ArrayList<String> stringToList(final String string) {
-        return new ArrayList<String>() {{ add(string); }};
+        return new ArrayList<String>() {{
+            add(string);
+        }};
     }
 
     /**
@@ -478,16 +480,17 @@ public final class Utilities {
 
     /**
      * Parse a string in the format of "XdXhXmXs" to seconds
+     *
      * @param string The string to parse
      * @return seconds
      */
     public static long lifeToSeconds(String string) {
         if (string.equals("0") || string.equals("")) return 0;
-        String[] lifeMatch = new String[]{ "d", "h", "m", "s" };
-        int[] lifeInterval = new int[]{ 86400, 3600, 60, 1 };
+        String[] lifeMatch = new String[]{"d", "h", "m", "s"};
+        int[] lifeInterval = new int[]{86400, 3600, 60, 1};
         long seconds = 0L;
 
-        for (int i=0;i<lifeMatch.length;i++) {
+        for (int i = 0; i < lifeMatch.length; i++) {
             Matcher matcher = Pattern.compile("([0-9]*)" + lifeMatch[i]).matcher(string);
             while (matcher.find()) {
                 seconds += Integer.parseInt(matcher.group(1)) * lifeInterval[i];

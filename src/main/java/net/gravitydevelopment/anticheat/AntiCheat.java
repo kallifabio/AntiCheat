@@ -88,6 +88,8 @@ public class AntiCheat extends JavaPlugin {
         }, 40L);
         // End tests
         verboseLog("Finished loading.");
+
+        Bukkit.getConsoleSender().sendMessage("§2Das AntiCheat wurde mit der Version§8: §e" + getDescription().getVersion() + " §2gestartet");
     }
 
     @Override
@@ -98,6 +100,8 @@ public class AntiCheat extends JavaPlugin {
         AntiCheatManager.close();
         getServer().getScheduler().cancelTasks(this);
         cleanup();
+
+        Bukkit.getConsoleSender().sendMessage("§4Das AntiCheat wurde mit der Version§8: §e" + getDescription().getVersion() + " §gestoppt");
     }
 
     private void setupProtocol() {

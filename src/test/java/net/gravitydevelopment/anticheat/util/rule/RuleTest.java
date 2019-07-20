@@ -25,6 +25,6 @@ public class RuleTest {
     @Test
     public void testRegex() {
         final String rule = "Check_SPIDER < 0 ? Player.KICK : null";
-        assert(Rule.Type.CONDITIONAL.matches(rule));
+        assert (Rule.Type.CONDITIONAL.matches(rule));
     }
 }

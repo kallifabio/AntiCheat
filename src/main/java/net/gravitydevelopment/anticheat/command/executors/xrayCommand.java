@@ -24,7 +24,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class CommandXray extends CommandBase {
+public class xrayCommand extends CommandBase {
 
     private static final String NAME = "AntiCheat XRAY Stats";
     private static final String COMMAND = "xray";
@@ -34,7 +34,7 @@ public class CommandXray extends CommandBase {
             GRAY + "Use: " + AQUA + "/anticheat xray [user]" + GRAY + " to view xray statistics for a user",
     };
 
-    public CommandXray() {
+    public xrayCommand() {
         super(NAME, COMMAND, USAGE, HELP, PERMISSION);
     }
 

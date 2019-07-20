@@ -18,28 +18,35 @@
 
 package net.gravitydevelopment.anticheat.command.executors;
 
-import net.gravitydevelopment.anticheat.AntiCheat;
 import net.gravitydevelopment.anticheat.command.CommandBase;
 import net.gravitydevelopment.anticheat.util.Permission;
 import org.bukkit.command.CommandSender;
 
-public class CommandDeveloper extends CommandBase {
+public class helpCommand extends CommandBase {
 
-    private static final String NAME = "AntiCheat Developer Mode";
-    private static final String COMMAND = "developer";
-    private static final String USAGE = "anticheat developer";
-    private static final Permission PERMISSION = Permission.SYSTEM_DEBUG;
+    private static final String NAME = "AntiCheat Help";
+    private static final String COMMAND = "help";
+    private static final String USAGE = "anticheat help";
+    private static final Permission PERMISSION = Permission.SYSTEM_HELP;
     private static final String[] HELP = {
-            GRAY + "Use: " + AQUA + "/anticheat developer" + GRAY + " to turn on developer mode",
+            GRAY + "/anti " + AQUA + "help",
+            GRAY + "/anti " + AQUA + "reload",
+            GRAY + "/anti " + AQUA + "update",
+            GRAY + "/anti " + AQUA + "debug " + AQUA + "<user>",
+            GRAY + "/anti " + AQUA + "check " + GOLD + "[check] [on/off]",
+            GRAY + "/anti " + AQUA + "log " + GOLD + "[file/console] [on/off]",
+            GRAY + "/anti " + AQUA + "report " + GOLD + "[group/user]",
+            GRAY + "/anti " + AQUA + "reset " + GOLD + "[user]",
+            GRAY + "/anti " + AQUA + "xray " + GOLD + "[user]",
+            GRAY + "/anti " + AQUA + "spy " + GOLD + "[user]",
     };
 
-    public CommandDeveloper() {
+    public helpCommand() {
         super(NAME, COMMAND, USAGE, HELP, PERMISSION);
     }
 
     @Override
     protected void execute(CommandSender cs, String[] args) {
-        AntiCheat.setDeveloperMode(!AntiCheat.developerMode());
-        cs.sendMessage(GREEN + "Developer mode " + (AntiCheat.developerMode() ? "ON" : "OFF"));
+        sendHelp(cs);
     }
 }
