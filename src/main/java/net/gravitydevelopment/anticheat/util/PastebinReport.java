@@ -126,7 +126,7 @@ public class PastebinReport {
         append("Max Memory: " + runtime.maxMemory() / 1024 / 1024 + "MB");
         append("Total Memory: " + runtime.totalMemory() / 1024 / 1024 + "MB");
         append("Online Mode: " + Bukkit.getOnlineMode());
-        append("Players: " + Bukkit.getOnlinePlayers().length + "/" + Bukkit.getMaxPlayers());
+        append("Players: " + Bukkit.getOnlinePlayers().size() + "/" + Bukkit.getMaxPlayers());
         append("Plugin Count: " + Bukkit.getPluginManager().getPlugins().length);
         append("Plugin Uptime: " + ((System.currentTimeMillis() - AntiCheat.getPlugin().getLoadTime()) / 1000) / 60 + " minutes");
         append("Enterprise: " + config.getConfig().enterprise.getValue());

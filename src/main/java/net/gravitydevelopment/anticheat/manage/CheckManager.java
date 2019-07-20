@@ -61,7 +61,7 @@ public class CheckManager {
      */
     public void activateCheck(CheckType type, String className) {
         if (!isActive(type)) {
-            manager.getLoggingManager().logFineInfo("The " + type.toString() + " check was activated by " + className + ".");
+            manager.getLoggingManager().logFineInfo("Der " + type.toString() + " Check wurde aktiviert von " + className + ".");
             checkIgnoreList.remove(type);
         }
     }
@@ -73,7 +73,7 @@ public class CheckManager {
      */
     public void deactivateCheck(CheckType type, String className) {
         if (isActive(type)) {
-            manager.getLoggingManager().logFineInfo("The " + type.toString() + " check was deactivated by " + className + ".");
+            manager.getLoggingManager().logFineInfo("Der " + type.toString() + " Check wurde deaktiviert von " + className + ".");
             checkIgnoreList.add(type);
         }
     }
